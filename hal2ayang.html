@@ -4,44 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Isi Hatiku Untukmu 💖</title>
-    <script>
+
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Pastikan audio diputar tanpa perlu klik play lagi
-      if(localStorage.getItem('musicPlaying') === 'true') {
-        document.getElementById('music').play();
+      const music = document.getElementById('music');
+      if (localStorage.getItem('musicPlaying') === 'true') {
+        music.play();
       }
     });
   </script>
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    for (let i = 0; i < 20; i++) {
-      let flower = document.createElement('div');
-      flower.classList.add('flower');
-      flower.style.left = Math.random() * 100 + 'vw';
-      flower.style.animationDuration = 2 + Math.random() * 3 + 's';
-      flower.style.opacity = Math.random();
-      document.body.appendChild(flower);
-    }
-  });
-</script>
-<style>
-  .flower {
-    position: fixed;
-    top: -10px;
-    width: 20px;
-    height: 20px;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
-    background-size: cover;
-    animation: fall linear infinite;
-    z-index: 0;
-  }
 
-  @keyframes fall {
-    to {
-      transform: translateY(100vh) rotate(360deg);
-    }
-  }
-</style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      for (let i = 0; i < 20; i++) {
+        let flower = document.createElement('div');
+        flower.classList.add('flower');
+        flower.style.left = Math.random() * 100 + 'vw';
+        flower.style.animationDuration = 2 + Math.random() * 3 + 's';
+        flower.style.opacity = Math.random();
+        document.body.appendChild(flower);
+      }
+    });
+  </script>
 
   <style>
     body {
@@ -55,7 +40,6 @@
       transition: opacity 1s ease, transform 1s ease;
       transform: scale(0.95);
     }
-    <audio id="music" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" autoplay loop></audio>
     h1 {
       font-size: 3em;
       margin-bottom: 20px;
@@ -88,9 +72,28 @@
       50% { transform: scale(1.2); }
       100% { transform: scale(1); }
     }
+    .flower {
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: cover;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
   </style>
 </head>
+
 <body>
+
+  <!-- Audio dipindah ke sini -->
+  <audio id="music" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" autoplay loop></audio>
 
   <h1>Isi Hatiku Untukmu 💖</h1>
   <p>
@@ -98,7 +101,7 @@
     Senyummu menerangi hariku, tawamu menghidupkan jiwaku... ✨<br><br>
     Aku berjanji akan selalu berada di sisimu, dalam suka dan duka... 💖
   </p>
-  
+
   <div class="heart">❤️❤️❤️</div>
 
   <button class="next-button" onclick="fadeOutAndGo('hal3ayang.html')">Lanjut ➡️</button>
@@ -111,7 +114,7 @@
         window.location.href = targetPage;
       }, 1000);
     }
-    
+
     window.onload = () => {
       document.body.style.opacity = 1;
       document.body.style.transform = "scale(1)";
