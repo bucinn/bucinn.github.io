@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Cinta Sejatiku ❤️</title>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      for (let i = 0; i < 20; i++) {
+        let flower = document.createElement('div');
+        flower.classList.add('flower');
+        flower.style.left = Math.random() * 100 + 'vw';
+        flower.style.animationDuration = 2 + Math.random() * 3 + 's';
+        flower.style.opacity = Math.random();
+        document.body.appendChild(flower);
+      }
+    });
+  </script>
+
+  <style>
+    .flower {
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: cover;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffe4e1, #ffb6c1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      color: #8b0000;
+      opacity: 1;
+      transition: opacity 1s ease, transform 1s ease;
+      transform: scale(1);
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    .flower-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .flower-button img {
+      width: 250px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      transition: transform 0.5s, box-shadow 0.5s;
+    }
+
+    .flower-button img:hover {
+      transform: rotate(5deg) scale(1.1);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+    }
+
+    /* Style untuk animasi bunga jatuh */
+    .flower {
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: cover;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Musik yang diputar saat halaman dimuat -->
+  <audio id="music" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" autoplay loop></audio>
+
+  <h1>Untuk Kamu, yang Selalu di Hatiku ❤️</h1>
+  <p>Tekan bunga ini untuk membuka isi hatiku 🌹</p>
+
+  <button class="flower-button" onclick="fadeOutAndGo('hal2ayang.html')">
+    <img src="https://2.bp.blogspot.com/-bTZIvIxpd8M/Vtjqf260b5I/AAAAAAAACUw/u5Qu8_Iou5s/s1600/Gambar-Wallpaper-Bunga-Cantik-Indah-.jpg" alt="Bunga Cantik">
+  </button>
+
+  <script>
+    function fadeOutAndGo(targetPage) {
+      document.body.style.opacity = 0;
+      document.body.style.transform = "scale(0.95)";
+      setTimeout(() => {
+        window.location.href = targetPage;
+      }, 1000);
+    }
+
+    window.onload = () => {
+      document.body.style.opacity = 1;
+      document.body.style.transform = "scale(1)";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertanyaan Untukmu 💌</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe4e1, #ffb6c1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 40px;
+      margin: 0;
+      color: #d2691e;
+      opacity: 0;
+      transition: opacity 1s ease, transform 1s ease;
+      transform: scale(0.95);
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.5em;
+      margin-bottom: 40px;
+    }
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .choice-button {
+      padding: 12px 24px;
+      font-size: 1.2em;
+      background-color: #ff69b4;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .choice-button:hover {
+      background-color: #ff1493;
+      transform: scale(1.1);
+    }
+    .flower {
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: cover;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+    .message {
+      font-size: 1.5em;
+      color: #ff1493;
+      font-weight: bold;
+      margin-top: 20px;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+<audio id="music" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" autoplay loop></audio>
+
+<h1 class="animate__animated animate__fadeInDown">Aku Mau Bertanya... 💌</h1>
+<p class="animate__animated animate__fadeInUp">Apakah kamu menyayangiku? Dan suka dengan kejutan kecil ini? 🌸</p>
+
+<div class="button-group">
+  <button class="choice-button" onclick="pilihIya()">Iyaaa ❤️</button>
+  <button class="choice-button" id="noButton" onclick="gagal()">Tidak 😭</button>
+</div>
+
+<p id="message" class="message animate__animated animate__fadeIn"></p>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.style.opacity = 1;
+    document.body.style.transform = "scale(1)";
+    for (let i = 0; i < 20; i++) {
+      let flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = 2 + Math.random() * 3 + 's';
+      flower.style.opacity = Math.random();
+      document.body.appendChild(flower);
+    }
+  });
+
+  function pilihIya() {
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+    setTimeout(() => {
+      window.location.href = "hal4ayang.html";
+    }, 1500);
+  }
+
+  function gagal() {
+    const btn = document.getElementById('noButton');
+    btn.style.position = "absolute";
+    btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+    
+    // Menampilkan pesan lucu
+    const message = document.getElementById('message');
+    message.textContent = "Aduh, jangan bohong yaa 😜";
+    message.style.opacity = 1;
+
+    // Menambahkan gerakan tombol "Tidak"
+    btn.classList.add("animate__animated", "animate__shakeX");
+
+    setTimeout(() => {
+      // Setelah beberapa detik, kembali ke posisi semula
+      btn.style.position = "static";
+      btn.classList.remove("animate__animated", "animate__shakeX");
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>

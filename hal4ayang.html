@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terima Kasih Cintaku ❤️</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    body {
+      background: linear-gradient(to right, #ffb6c1, #ffe4e1, #ffb6c1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+      color: #d2691e;
+      overflow-x: hidden;
+      animation: fadeIn 2s;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.8em;
+      margin-top: 30px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-50px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .flower {
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: cover;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<audio id="music" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" autoplay loop></audio>
+
+<h1 class="animate__animated animate__fadeInDownBig">Terima Kasih Cintaku! ❤️</h1>
+<p class="animate__animated animate__fadeInUpBig">
+  Aku bahagia banget kamu sayang aku juga.  
+  Kamu adalah alasan di balik semua senyumku setiap hari.  
+  Aku janji akan selalu berusaha membuatmu bahagia, sayangku... 💕
+</p>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    for (let i = 0; i < 20; i++) {
+      let flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = 2 + Math.random() * 3 + 's';
+      flower.style.opacity = Math.random();
+      document.body.appendChild(flower);
+    }
+  });
+</script>
+
+</body>
+</html>
