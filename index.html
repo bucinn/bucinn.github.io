@@ -7,6 +7,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Untuk membuat bunga jatuh
       for (let i = 0; i < 20; i++) {
         let flower = document.createElement('div');
         flower.classList.add('flower');
@@ -15,27 +16,24 @@
         flower.style.opacity = Math.random();
         document.body.appendChild(flower);
       }
+
+      // Putar musik saat halaman dimuat
+      const music = document.getElementById('music');
+      if (localStorage.getItem('musicPlaying') === 'true') {
+        music.play();
+      } else {
+        // Kalau belum pernah diset, kita set sekarang
+        music.play().then(() => {
+          localStorage.setItem('musicPlaying', 'true');
+        }).catch(() => {
+          // Kalau autoplay diblokir browser, user harus interaksi dulu
+          console.log('Musik butuh interaksi user!');
+        });
+      }
     });
   </script>
 
   <style>
-    .flower {
-      position: fixed;
-      top: -10px;
-      width: 20px;
-      height: 20px;
-      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
-      background-size: cover;
-      animation: fall linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(100vh) rotate(360deg);
-      }
-    }
-
     body {
       background: linear-gradient(135deg, #ffe4e1, #ffb6c1);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -80,7 +78,6 @@
       box-shadow: 0 12px 24px rgba(0,0,0,0.4);
     }
 
-    /* Style untuk animasi bunga jatuh */
     .flower {
       position: fixed;
       top: -10px;
@@ -91,12 +88,18 @@
       animation: fall linear infinite;
       z-index: 0;
     }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- Musik yang diputar saat halaman dimuat -->
+  <!-- Musik dipindahkan ke body -->
   <audio id="music" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" autoplay loop></audio>
 
   <h1>Untuk Kamu, yang Selalu di Hatiku ❤️</h1>
